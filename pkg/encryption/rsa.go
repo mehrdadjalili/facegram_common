@@ -61,6 +61,42 @@ func (e *Encryption) RsaVerify(signature string, data []byte) (bool, error) {
 	return true, nil
 }
 
+func (e *Encryption) RsaEncrypt(plainText string) (string, error) {
+	bytes := []byte(e.publicKey)
+	publicKey, err := convertBytesToPublicKey(bytes)
+	if err != nil {
+		return "", derrors.InternalError()
+	}
+	cipher, err := rsa.EncryptPKCS1v15(rand.Reader, publicKey, []byte(plainText))
+	if err != nil {
+		return "", derrors.InternalError()
+	}
+	return base64.URLEncoding.EncodeToString(cipher), nil
+}
+
+func (e *Encryption) RsaDecrypt(encryptedMessage string) (string, error) {
+	bytes := []byte(e.privateKey)
+	privateKey, err := convertBytesToPrivateKey(bytes)
+	if err != nil {
+		return "", derrors.InternalError()
+	}
+
+	msg, err := base64.URLEncoding.DecodeString(encryptedMessage)
+	if e != nil {
+		return "", derrors.InternalError()
+	}
+
+	plainMessage, e5 := rsa.DecryptPKCS1v15(
+		rand.Reader,
+		privateKey,
+		msg,
+	)
+	if e5 != nil {
+		return "", e5
+	}
+	return string(plainMessage), nil
+}
+
 func getPrivateKey(key string) (*rsa.PrivateKey, error) {
 	privateKey, err := convertBytesToPrivateKey([]byte(key))
 	if err != nil {
