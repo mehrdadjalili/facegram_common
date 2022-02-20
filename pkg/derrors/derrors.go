@@ -9,49 +9,61 @@ import (
 )
 
 type (
-	kind uint
+	status uint
 
 	serverError struct {
-		kind    kind
+		status  status
 		message string
 	}
 )
 
 const (
-	_ kind = iota
-	KindInvalid
-	KindNotFound
-	KindUnauthorized
-	KindUnexpected
-	KindNotAllowed
-	KindForbidden
+	_ status = iota
+	StatusNoContent
+	StatusBadRequest
+	StatusUnauthorized
+	StatusPaymentRequired
+	StatusForbidden
+	StatusNotFound
+	StatusNotAcceptable
+	StatusUnsupportedMediaType
+	StatusLocked
+	StatusUpgradeRequired
+	StatusTooManyRequests
+	StatusInternalServerError
 )
 
 var (
-	httpErrors = map[kind]int{
-		KindInvalid:      http.StatusBadRequest,
-		KindNotFound:     http.StatusNotFound,
-		KindUnauthorized: http.StatusUnauthorized,
-		KindUnexpected:   http.StatusInternalServerError,
-		KindNotAllowed:   http.StatusMethodNotAllowed,
-		KindForbidden:    http.StatusForbidden,
+	httpErrors = map[status]int{
+		StatusNoContent:            http.StatusNoContent,
+		StatusBadRequest:           http.StatusBadRequest,
+		StatusUnauthorized:         http.StatusUnauthorized,
+		StatusPaymentRequired:      http.StatusPaymentRequired,
+		StatusForbidden:            http.StatusForbidden,
+		StatusNotFound:             http.StatusNotFound,
+		StatusNotAcceptable:        http.StatusNotAcceptable,
+		StatusUnsupportedMediaType: http.StatusUnsupportedMediaType,
+		StatusLocked:               http.StatusLocked,
+		StatusUpgradeRequired:      http.StatusUpgradeRequired,
+		StatusTooManyRequests:      http.StatusTooManyRequests,
+		StatusInternalServerError:  http.StatusInternalServerError,
 	}
 )
 
 //New is constructor of the errors package
-func New(kind kind, msg string) error {
+func New(status status, msg string) error {
 	return serverError{
-		kind:    kind,
+		status:  status,
 		message: msg,
 	}
 }
 
-func NewWithLogger(kind kind, msg string, logger logger.Logger, function string, err error) error {
+func NewWithLogger(status status, msg string, logger logger.Logger, function string, err error) error {
 	logger.Error(err.Error(), map[string]interface{}{
 		"Function":        function,
 		"ResponseMessage": msg,
 	})
-	return New(kind, msg)
+	return New(status, msg)
 }
 
 //Error return message of error
@@ -66,10 +78,10 @@ func HttpError(err error) (string, int) {
 
 	ok := errors.As(err, &serverErr)
 	if !ok {
-		return messages.GeneralError, http.StatusInternalServerError
+		return messages.InternalServerError, http.StatusInternalServerError
 	}
 
-	code, ok := httpErrors[serverErr.kind]
+	code, ok := httpErrors[serverErr.status]
 	if !ok {
 		return serverErr.message, http.StatusBadRequest
 	}

@@ -6,15 +6,51 @@ import (
 )
 
 func InternalError() error {
-	return New(KindUnexpected, messages.GeneralError)
+	return New(StatusInternalServerError, messages.InternalServerError)
 }
 
 func InternalErrorWithLogger(function string, err error, logger logger.Logger) error {
 	return NewWithLogger(
-		KindUnexpected,
-		messages.GeneralError,
+		StatusInternalServerError,
+		messages.InternalServerError,
 		logger,
 		function,
 		err,
 	)
+}
+
+func BadRequest() error {
+	return New(StatusBadRequest, messages.BadRequest)
+}
+
+func Unauthorized() error {
+	return New(StatusUnauthorized, messages.Unauthorized)
+}
+
+func PaymentRequired() error {
+	return New(StatusPaymentRequired, messages.PaymentRequired)
+}
+
+func Forbidden() error {
+	return New(StatusForbidden, messages.Forbidden)
+}
+
+func NotAcceptable() error {
+	return New(StatusNotAcceptable, messages.NotAcceptable)
+}
+
+func UnsupportedMediaType() error {
+	return New(StatusUnsupportedMediaType, messages.UnsupportedMediaType)
+}
+
+func Locked() error {
+	return New(StatusLocked, messages.Locked)
+}
+
+func UpgradeRequired() error {
+	return New(StatusUpgradeRequired, messages.UpgradeRequired)
+}
+
+func TooManyRequests() error {
+	return New(StatusLocked, messages.Locked)
 }

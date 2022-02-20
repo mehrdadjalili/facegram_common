@@ -1,12 +1,11 @@
-# invalid
-InvalidWalletStatus = "وضعیت کیف پول نامعتبر است"
-InvalidUserStatus = "وضعیت کاربر نامعتبر است"
-InvalidBookStatus = "وضعیت کتاب نامعتبر است"
-InvalidGender = "جنسیت نامعتبر است"
-InvalidRole = "نقش نامعتبر است"
-
-# no found
-UserNotFound = "کاربر مورد نظر یافت نشد"
-
-# general
-DBError = "خطایی وجود دارد"
+BadRequest = "Bad Request"
+Unauthorized = "Unauthorized"
+PaymentRequired = "Payment Required"
+Forbidden = "Forbidden"
+NotFound = "Not Found"
+NotAcceptable = "Not Acceptable"
+UnsupportedMediaType = "Unsupported Media Type"
+Locked = "Locked"
+UpgradeRequired = "Upgrade Required"
+TooManyRequests = "Too Many Requests"
+InternalServerError = "Internal Server Error"

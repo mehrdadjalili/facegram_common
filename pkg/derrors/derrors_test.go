@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/matiniiuu/mcommon/pkg/translator/messages"
+	"github.com/mehrdadjalili/facegram_common/pkg/translator/messages"
 )
 
 func TestHttpError(t *testing.T) {
@@ -23,7 +23,7 @@ func TestHttpError(t *testing.T) {
 		{
 			name: "server error",
 			args: args{
-				err: New(KindNotFound, "page not found"),
+				err: New(StatusNotFound, "page not found"),
 			},
 			want1: "page not found",
 			want2: http.StatusNotFound,
@@ -31,7 +31,7 @@ func TestHttpError(t *testing.T) {
 		{
 			name: "server error",
 			args: args{
-				err: fmt.Errorf("something: %w", New(KindNotFound, "page not found")),
+				err: fmt.Errorf("something: %w", New(StatusNotFound, "page not found")),
 			},
 			want1: "page not found",
 			want2: http.StatusNotFound,
@@ -41,7 +41,7 @@ func TestHttpError(t *testing.T) {
 			args: args{
 				err: errors.New("something"),
 			},
-			want1: messages.GeneralError,
+			want1: messages.InternalServerError,
 			want2: http.StatusInternalServerError,
 		},
 	}

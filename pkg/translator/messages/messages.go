@@ -1,11 +1,15 @@
 package messages
 
 const (
-	DBError         = "DBError"
-	GeneralError    = "GeneralError"
-	ParseQueryError = "ParseQueryError"
-	NotFound        = "NotFound"
-	InvalidSort     = "InvalidSort"
-	InvalidFileSize = "InvalidFileSize"
-	InvalidFileType = "InvalidFileType"
+	BadRequest           = "StatusBadRequest"
+	Unauthorized         = "Unauthorized"
+	PaymentRequired      = "PaymentRequired"
+	Forbidden            = "Forbidden"
+	NotFound             = "NotFound"
+	NotAcceptable        = "NotAcceptable"
+	UnsupportedMediaType = "UnsupportedMediaType"
+	Locked               = "Locked"
+	UpgradeRequired      = "UpgradeRequired"
+	TooManyRequests      = "TooManyRequests"
+	InternalServerError  = "InternalServerError"
 )
