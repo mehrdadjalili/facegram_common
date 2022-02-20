@@ -21,7 +21,7 @@ func TestMessageBundle_Translate(t *testing.T) {
 		{
 			name: "translate farsi",
 			args: args{
-				message:  messages.DBError,
+				message:  messages.InternalServerError,
 				language: translator.GetLanguage("fa"),
 			},
 			want: "خطایی وجود دارد",

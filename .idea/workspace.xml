@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ebcaf8b4-1251-4135-a008-51638bcc073a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/derrors/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/derrors/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/derrors/derrors.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/derrors/derrors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/derrors/derrors_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/derrors/derrors_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/logrus/logrus.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/zap/zap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/translator/i18n/testdata/message.en.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/translator/i18n/testdata/message.en.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/translator/i18n/testdata/message.fa.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/translator/i18n/testdata/message.fa.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/translator/messages/messages.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/translator/messages/messages.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/translator/translator.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/translator/translator.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +68,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

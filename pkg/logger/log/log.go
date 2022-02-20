@@ -1,7 +1,7 @@
 package log
 
 import (
-	"fgit.ir/facegram/common/logger/models"
+	"github.com/mehrdadjalili/facegram_common/pkg/logger/models"
 	"github.com/streadway/amqp"
 )
 
