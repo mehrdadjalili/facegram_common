@@ -4,7 +4,6 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/mehrdadjalili/facegram_common/pkg/logger"
 	"github.com/mehrdadjalili/facegram_common/pkg/translator/messages"
 )
 
@@ -31,6 +30,8 @@ const (
 	StatusUpgradeRequired
 	StatusTooManyRequests
 	StatusInternalServerError
+	StatusMethodNotAllowed
+	StatusUnexpected
 )
 
 var (
@@ -47,6 +48,8 @@ var (
 		StatusUpgradeRequired:      http.StatusUpgradeRequired,
 		StatusTooManyRequests:      http.StatusTooManyRequests,
 		StatusInternalServerError:  http.StatusInternalServerError,
+		StatusMethodNotAllowed:     http.StatusMethodNotAllowed,
+		StatusUnexpected:           http.StatusInternalServerError,
 	}
 )
 
@@ -56,14 +59,6 @@ func New(status status, msg string) error {
 		status:  status,
 		message: msg,
 	}
-}
-
-func NewWithLogger(status status, msg string, logger logger.Logger, function string, err error) error {
-	logger.Error(err.Error(), map[string]interface{}{
-		"Function":        function,
-		"ResponseMessage": msg,
-	})
-	return New(status, msg)
 }
 
 //Error return message of error
