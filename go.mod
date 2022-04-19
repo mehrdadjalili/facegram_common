@@ -9,6 +9,7 @@ require (
 
 require (
 	cloud.google.com/go v0.65.0 // indirect
+	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
 )
 
