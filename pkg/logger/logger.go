@@ -51,21 +51,15 @@ func New(url, token, serviceName, serviceIp, certificate, domain string) (Logger
 }
 
 func (l *logger) Info(data *LogData) {
-	go func() {
-		l.submit(pd_logger_client.LogType_INFO, data)
-	}()
+	l.submit(pd_logger_client.LogType_INFO, data)
 }
 
 func (l *logger) Warning(data *LogData) {
-	go func() {
-		l.submit(pd_logger_client.LogType_WARNING, data)
-	}()
+	l.submit(pd_logger_client.LogType_WARNING, data)
 }
 
 func (l *logger) Error(data *LogData) {
-	go func() {
-		l.submit(pd_logger_client.LogType_ERROR, data)
-	}()
+	l.submit(pd_logger_client.LogType_ERROR, data)
 }
 
 func (l *logger) submit(Type pd_logger_client.LogType, data *LogData) {
@@ -87,7 +81,7 @@ func (l *logger) submit(Type pd_logger_client.LogType, data *LogData) {
 			IsEncrypted: item.IsEncrypted,
 		})
 	}
-	client.Submit(context.Background(), &pd_logger_client.SubmitRequest{
+	_, _ = client.Submit(context.Background(), &pd_logger_client.SubmitRequest{
 		LogType:     Type,
 		Section:     data.Section,
 		Function:    data.Function,

@@ -8,6 +8,10 @@ func InternalError() error {
 	return New(StatusInternalServerError, messages.InternalServerError)
 }
 
+func NotFound() error {
+	return New(StatusNotFound, messages.NotFound)
+}
+
 func BadRequest() error {
 	return New(StatusBadRequest, messages.BadRequest)
 }
