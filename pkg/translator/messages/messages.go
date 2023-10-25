@@ -1,15 +1,15 @@
 package messages
 
 const (
-	BadRequest           = "StatusBadRequest"
+	BadRequest           = "Bad Request"
 	Unauthorized         = "Unauthorized"
-	PaymentRequired      = "PaymentRequired"
+	PaymentRequired      = "Payment Required"
 	Forbidden            = "Forbidden"
-	NotFound             = "NotFound"
-	NotAcceptable        = "NotAcceptable"
-	UnsupportedMediaType = "UnsupportedMediaType"
+	NotFound             = "Not Found"
+	NotAcceptable        = "Not Acceptable"
+	UnsupportedMediaType = "Unsupported Media Type"
 	Locked               = "Locked"
-	UpgradeRequired      = "UpgradeRequired"
-	TooManyRequests      = "TooManyRequests"
-	InternalServerError  = "InternalServerError"
+	UpgradeRequired      = "Upgrade Required"
+	TooManyRequests      = "Too Many Requests"
+	InternalServerError  = "Internal Server Error"
 )
